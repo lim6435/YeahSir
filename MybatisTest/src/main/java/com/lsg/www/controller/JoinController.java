@@ -18,14 +18,6 @@ public class JoinController {
 	@Autowired
 	YsMemMapper ysMemMapper;
 	
-	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
-	public String test(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		List result = ysMemMapper.getYsMem("11");
-		System.out.println(result);
-		
-		return result.toString();
-	}
-	
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
 	public String memJoin(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		List result = ysMemMapper.getYsMem("11");
