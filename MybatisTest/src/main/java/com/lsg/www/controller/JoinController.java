@@ -25,5 +25,13 @@ public class JoinController {
 		
 		return result.toString();
 	}
+	
+	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
+	public String memJoin(HttpServletRequest req, HttpServletResponse res) throws Exception{
+		List result = ysMemMapper.getYsMem("11");
+		System.out.println(result);
+		
+		return result.toString();
+	}
 }
 
