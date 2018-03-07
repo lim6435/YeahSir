@@ -22,7 +22,7 @@ public class MainController {
 	public String selMemInfo(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		List result = ysMemMapper.getYsMem("11");
 		System.out.println(result);
-		
+
 		return result.toString();
 	}
 }
