@@ -18,7 +18,7 @@ public class MybatisTestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MybatisTestApplication.class, args);
 	}
-	
+
 	@Bean
 	public SqlSessionFactory sqlSessionFactory(DataSource datasource)throws Exception {
 		SqlSessionFactoryBean sf = new SqlSessionFactoryBean();

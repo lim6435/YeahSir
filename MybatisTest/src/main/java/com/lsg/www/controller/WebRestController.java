@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +24,8 @@ public class WebRestController {
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
 	public String test(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		List result = ysMemMapper.getYsMem("11");
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("id", result.get(0));
 
-		return jsonObject.toJSONString();
+
+		return result.toString();
 	}
 }
