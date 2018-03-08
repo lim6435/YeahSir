@@ -1,10 +1,14 @@
 package com.lsg.www.controller;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +28,13 @@ public class WebRestController {
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
 	public String test(HttpServletRequest req, HttpServletResponse res) throws Exception{
 		List result = ysMemMapper.getYsMem("11");
-
-
-		return result.toString();
+		Iterator it = result.iterator();
+		JSONArray arr = new JSONArray();
+		JSONObject obj = new JSONObject();
+		while(it.hasNext()) {
+			obj.putAll((HashMap)it.next());
+		}
+		arr.add(obj);
+		return arr.toJSONString();
 	}
 }
