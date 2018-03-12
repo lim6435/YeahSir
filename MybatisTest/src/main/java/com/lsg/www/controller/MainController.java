@@ -1,5 +1,6 @@
 package com.lsg.www.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ public class MainController {
 	
 	@RequestMapping(value="/selMemInfo", method= {RequestMethod.GET, RequestMethod.POST})
 	public String selMemInfo(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		List result = ysMemMapper.getYsMem("11");
+		HashMap result = ysMemMapper.getYsMem("11");
 		System.out.println(result);
 		
 		return result.toString();
