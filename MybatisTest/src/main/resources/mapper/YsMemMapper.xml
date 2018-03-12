@@ -20,6 +20,28 @@
     </select>
 
     <insert id="insYsMem" parameterType="com.lsg.www.vo.YsMemVo">
-
+      INSERT INTO YS_MEM(
+        mem_id,
+        mem_pwd,
+        lgn_tpcd,
+        mem_name,
+        mem_birth,
+        mem_tall,
+        mem_weight,
+        join_dt,
+        reg_dtms,
+        reg_id
+    ) VALUES (
+      #{memId},
+      #{memPwd},
+      #{lgnTpcd},
+      #{memName},
+      #{memBirth},
+      #{memTall},
+      #{memWeight},
+      DATE_FORMAT(now(), '%Y%M%D'),
+      now()
+      #{regId}
+    )
     </insert>
 </mapper>
