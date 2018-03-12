@@ -16,7 +16,7 @@ import com.lsg.www.vo.YsCoptVo;
 
 @RestController
 public class MainController {
-	private static final Logger log = LoggerFactory.getLogger(WebRestController.class);
+	private static final Logger log = LoggerFactory.getLogger(MainController.class);
 	
 	@Autowired
 	MainMapper mainMapper;
@@ -25,13 +25,7 @@ public class MainController {
 	public String selCopt(@RequestBody JSONObject object) throws Exception{
 		
 	    log.info("Request JSON DATA [" + object.toString() + "]");
-//	    String reqId = (String) object.get("id");
-//	    String password = (String)object.get("pwd");
         YsCoptVo coptVo = new YsCoptVo();
-//        memVo.setMemId(reqId);
-//        memVo.setMemPwd(password);
-
-//	    log.info("Request Parameter : " + reqId + " \t##### pwd : " + password);
 		HashMap result = mainMapper.getYsCopt(coptVo);
 
         JSONObject obj = new JSONObject();

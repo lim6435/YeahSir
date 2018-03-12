@@ -14,7 +14,7 @@ import com.lsg.www.mapper.YsMemMapper;
 
 @RestController
 public class JoinController {
-	private static final Logger log = LoggerFactory.getLogger(WebRestController.class);
+	private static final Logger log = LoggerFactory.getLogger(JoinController.class);
 	@Autowired
 	YsMemMapper ysMemMapper;
 	
