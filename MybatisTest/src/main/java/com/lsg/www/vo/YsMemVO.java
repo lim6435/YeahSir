@@ -14,6 +14,19 @@ public class YsMemVO {
 	private String regId;
 	private String chngDtms;
 
+	public String getMemId() {
+		return memId;
+	}
+
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
+	public String getMemName() {
+		return memName;
+	}
+	public void setMemName(String memName) {
+		this.memName = memName;
+	}
 	public String getMemBirth() {
 		return memBirth;
 	}
@@ -94,18 +107,5 @@ public class YsMemVO {
 
 	public void setMemPwd(String memPwd) {
 		this.memPwd = memPwd;
-	}
-
-	public String getMemId() {
-		return memId;
-	}
-	public void setMemId(String memId) {
-		this.memId = memId;
-	}
-	public String getMemName() {
-		return memName;
-	}
-	public void setMemName(String memName) {
-		this.memName = memName;
 	}
 }

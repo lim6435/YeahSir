@@ -5,6 +5,9 @@
 
 <mapper namespace="com.lsg.www.mapper.YsMemMapper">
     <select id="getYsMem" resultType="java.util.HashMap" parameterType="com.lsg.www.vo.YsMemVO">
-        select mem_id, mem_name, mem_birth, mem_tall, mem_weight from YS_MEM where mem_id = #{memId} and mem_pwd = #{memPwd}
+        select mem_id, mem_name, mem_birth, mem_tall, mem_weight
+        from YS_MEM
+        where mem_id = #{memId}
+          and mem_pwd = #{memPwd}
     </select>
 </mapper>
