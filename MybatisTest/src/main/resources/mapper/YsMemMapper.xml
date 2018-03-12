@@ -4,7 +4,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lsg.www.mapper.YsMemMapper">
-    <select id="getYsMem" resultType="java.util.HashMap" parameterType="com.lsg.www.vo.YsMemVO">
+    <resultMap id="YsMemResult" type="YsMemVO">
+        <result column="mem_id" property="memId" />
+        <result column="mem_name" property="memName" />
+        <result column="mem_birth" property="memBirth" />
+        <result column="mem_tall" property="memTall" />
+        <result column="mem_weight" property="memWeight" />
+    </resultMap>
+
+    <select id="getYsMem" resultMap="YsMemResult" parameterType="com.lsg.www.vo.YsMemVO">
         select mem_id, mem_name, mem_birth, mem_tall, mem_weight
         from YS_MEM
         where mem_id = #{memId}

@@ -31,9 +31,7 @@ public class WebRestController {
 
         JSONObject obj = new JSONObject();
         obj.putAll(result);
-		log.info("result :: ", result.toString());
-		System.out.println(result.toString());
-		
+		log.info("result :: " + result.toString());
 		log.info("result json :: " + obj.toString());
 
 		return obj.toString();
