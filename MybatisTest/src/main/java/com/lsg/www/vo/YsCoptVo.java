@@ -1,6 +1,7 @@
 package com.lsg.www.vo;
 
 public class YsCoptVo {
+	
     private String coptId;
     private String coptName;
     private String coptLoc;
@@ -9,9 +10,26 @@ public class YsCoptVo {
     private String coptPrid;
     private String coptAgeGrop;
     private String coptMtchRule;
-    private String regId;
+    private String coptFee;
+    private String coptStafTelNo;
 
-    public String getCoptId() {
+    public String getCoptFee() {
+		return coptFee;
+	}
+
+	public void setCoptFee(String coptFee) {
+		this.coptFee = coptFee;
+	}
+
+	public String getCoptStafTelNo() {
+		return coptStafTelNo;
+	}
+
+	public void setCoptStafTelNo(String coptStafTelNo) {
+		this.coptStafTelNo = coptStafTelNo;
+	}
+
+	public String getCoptId() {
         return coptId;
     }
 
@@ -75,11 +93,4 @@ public class YsCoptVo {
         this.coptMtchRule = coptMtchRule;
     }
 
-    public String getRegId() {
-        return regId;
-    }
-
-    public void setRegId(String regId) {
-        this.regId = regId;
-    }
 }
