@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lsg.www.mapper.MainMapper">
-    <resultMap id="YsCoptResult" type="YsCoptVo">
+    <resultMap id="YsCoptResult" type="com.lsg.www.vo.YsCoptVo">
         <result column="COPT_ID" property="coptId" />
         <result column="COPT_NAME" property="coptName" />
         <result column="COPT_LOC" property="coptLoc" />
@@ -15,7 +15,6 @@
         <result column="COPT_MTCH_RULE" property="coptMtchRule" />
         <result column="COPT_FEE" property="coptFee" />
         <result column="COPT_STAF_TEL_NO" property="coptStafTelNo" />
-        
     </resultMap>
 
     <select id="getYsCopt" resultMap="YsCoptResult" parameterType="com.lsg.www.vo.YsCoptVo">
