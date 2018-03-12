@@ -26,6 +26,7 @@ public class MybatisTestApplication {
 		sf.setDataSource(datasource);
 
 		Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*Mapper.xml");
+		System.out.println(res.length);
 		sf.setMapperLocations(res);
 
 		return sf.getObject();
