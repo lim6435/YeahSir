@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -29,8 +30,8 @@ public class WebRestController {
 	YsMemMapper ysMemMapper;
 	
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
-	public String test(HttpServletRequest req, HttpServletResponse res) throws Exception{
-	    String reqId = (String) req.getAttribute("id");
+	public String test(@RequestParam String id) throws Exception{
+	    String reqId = id;
 	    log.info("Request Parameter : " + reqId);
 		HashMap result = ysMemMapper.getYsMem(reqId);
 
