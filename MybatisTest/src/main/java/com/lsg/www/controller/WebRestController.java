@@ -32,7 +32,7 @@ public class WebRestController {
 	public String test(HttpServletRequest req, HttpServletResponse res) throws Exception{
 	    String reqId = req.getParameter("id");
 	    log.info("Request Parameter : " + req.toString());
-		List result = ysMemMapper.getYsMem(reqId);
+		HashMap result = ysMemMapper.getYsMem(reqId);
 
 		JSONArray jsonArray = new JSONArray();
 
