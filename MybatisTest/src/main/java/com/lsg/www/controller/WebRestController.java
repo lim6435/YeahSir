@@ -30,8 +30,8 @@ public class WebRestController {
 	
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
 	public String test(HttpServletRequest req, HttpServletResponse res) throws Exception{
-	    String reqId = req.getParameter("id");
-	    log.info("Request Parameter : " + req.toString());
+	    String reqId = (String) req.getAttribute("id");
+	    log.info("Request Parameter : " + reqId);
 		HashMap result = ysMemMapper.getYsMem(reqId);
 
 		JSONArray jsonArray = new JSONArray();
