@@ -24,7 +24,8 @@ public class WebRestController {
 	    String password = (String)object.get("pwd");
         YsMemVO memVo = new YsMemVO();
         memVo.setMemId(reqId);
-        memVo.setPwd(password);
+        memVo.setMemPwd(password);
+
 	    log.info("Request Parameter : " + reqId + " \t##### pwd : " + password);
 		HashMap result = ysMemMapper.getYsMem(memVo);
 
