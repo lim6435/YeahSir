@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lsg.www.mapper.YsMemMapper">
-    <select id="getYsMem" resultType="java.util.HashMap">
-        select mem_id, mem_name from YS_MEM where mem_id = #{id} and mem_pwd = #{pwd}
+    <select id="getYsMem" resultType="java.util.HashMap" parameterType="com.lsg.www.vo.YsMemVO">
+        select mem_id, mem_name from YS_MEM where mem_id = #{memId} and mem_pwd = #{pwd}
     </select>
 </mapper>

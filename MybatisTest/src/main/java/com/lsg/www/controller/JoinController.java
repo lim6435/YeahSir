@@ -21,11 +21,12 @@ public class JoinController {
 	
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
 	public String memJoin(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		
-		HashMap result = ysMemMapper.getYsMem("11", "1111");
-		System.out.println(result);
-		
-		return result.toString();
+//
+//		HashMap result = ysMemMapper.getYsMem("11", "1111");
+//		System.out.println(result);
+//
+//		return result.toString();
+        return null;
 	}
 }
 

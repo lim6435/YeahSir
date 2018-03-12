@@ -1,9 +1,10 @@
 package com.lsg.www.mapper;
 
+import com.lsg.www.vo.YsMemVO;
+
 import java.util.HashMap;
-import java.util.List;
 
 public interface YsMemMapper {
 
-	public HashMap getYsMem(String id, String pwd) throws Exception;
+	public HashMap getYsMem(YsMemVO vo) throws Exception;
 }
