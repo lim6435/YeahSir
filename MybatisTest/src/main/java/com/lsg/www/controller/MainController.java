@@ -21,7 +21,7 @@ public class MainController {
 	
 	@RequestMapping(value="/selMemInfo", method= {RequestMethod.GET, RequestMethod.POST})
 	public String selMemInfo(HttpServletRequest req, HttpServletResponse res) throws Exception{
-		HashMap result = ysMemMapper.getYsMem("11");
+		HashMap result = ysMemMapper.getYsMem("11", "1111");
 		System.out.println(result);
 		
 		return result.toString();

@@ -19,10 +19,11 @@ public class WebRestController {
 	
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
 	public String test(@RequestBody JSONObject object) throws Exception{
-	    log.info(object.toString());
+	    log.info("Request JSON DATA [" + object.toString() + "]");
 	    String reqId = (String) object.get("id");
-	    log.info("Request Parameter : " + reqId);
-		HashMap result = ysMemMapper.getYsMem(reqId);
+	    String password = (String)object.get("pwd");
+	    log.info("Request Parameter : " + reqId + "##### pwd : " + password);
+		HashMap result = ysMemMapper.getYsMem(reqId, password);
 
 		JSONArray jsonArray = new JSONArray();
 

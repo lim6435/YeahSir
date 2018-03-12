@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface YsMemMapper {
 
-	public HashMap getYsMem(String id) throws Exception;
+	public HashMap getYsMem(String id, String pwd) throws Exception;
 }
