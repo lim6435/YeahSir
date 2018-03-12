@@ -31,9 +31,4 @@ public class MybatisTestApplication {
 
 		return sf.getObject();
 	}
-
-	@Bean
-	public SqlSessionTemplate sqlSession(SqlSessionFactory sqlSessionFactory) {
-		return new SqlSessionTemplate(sqlSessionFactory);
-	}
 }

@@ -19,7 +19,7 @@
           AND mem_pwd = #{memPwd}
     </select>
 
-    <insert id="insYsMem" parameterType="com.lsg.www.vo.YsMemVo">
+    <insert id="insYsMem" parameterType="com.lsg.www.vo.YsMemVO">
       INSERT INTO YS_MEM(
         mem_id,
         mem_pwd,
