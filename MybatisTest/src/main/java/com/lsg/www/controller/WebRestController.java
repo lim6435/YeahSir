@@ -1,7 +1,6 @@
 package com.lsg.www.controller;
 
 import com.lsg.www.mapper.YsMemMapper;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,21 +24,13 @@ public class WebRestController {
 	    log.info("Request Parameter : " + reqId + "##### pwd : " + password);
 		HashMap result = ysMemMapper.getYsMem(reqId, password);
 
-		JSONArray jsonArray = new JSONArray();
-
-		for(int i = 0; i<result.size(); i++) {
-			JSONObject obj = new JSONObject();
-			obj.putAll((HashMap)result);
-			jsonArray.add(obj);
-		}
-
+        JSONObject obj = new JSONObject();
+        obj.putAll(result);
 		log.info("result :: ", result.toString());
 		System.out.println(result.toString());
 		
-		log.info("result json :: " + jsonArray.toString());
-		log.info(jsonArray.toString());
-		System.out.println("result json :: " + jsonArray.toString());
-		
-		return jsonArray.toString();
+		log.info("result json :: " + obj.toString());
+
+		return obj.toString();
 	}
 }
