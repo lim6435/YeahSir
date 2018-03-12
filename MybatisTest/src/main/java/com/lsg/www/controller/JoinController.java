@@ -21,6 +21,7 @@ public class JoinController {
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
 	public String memJoin(@RequestBody JSONObject object) throws Exception{
 		log.info("Request Message : " + object.toString());
+
 		String memId = (String) object.get("id");
 		String memPwd = (String) object.get("pwd");
 		String memName = (String) object.get("memName");
