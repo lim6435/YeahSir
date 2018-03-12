@@ -18,15 +18,15 @@ public class MybatisTestApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MybatisTestApplication.class, args);
 	}
-	
-	@Bean
-	public SqlSessionFactory sqlSessionFactory(DataSource datasource)throws Exception {
-		SqlSessionFactoryBean sf = new SqlSessionFactoryBean();
-		sf.setDataSource(datasource);
-		
-		Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*Mapper.xml");
-		sf.setMapperLocations(res);
-		
-		return sf.getObject();
-	}
+//
+//	@Bean
+//	public SqlSessionFactory sqlSessionFactory(DataSource datasource)throws Exception {
+//		SqlSessionFactoryBean sf = new SqlSessionFactoryBean();
+//		sf.setDataSource(datasource);
+//
+//		Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*Mapper.xml");
+//		sf.setMapperLocations(res);
+//
+//		return sf.getObject();
+//	}
 }
