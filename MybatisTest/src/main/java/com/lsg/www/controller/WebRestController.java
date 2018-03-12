@@ -1,38 +1,26 @@
 package com.lsg.www.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import com.lsg.www.mapper.YsMemMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
-import com.lsg.www.mapper.YsMemMapper;
+import java.util.HashMap;
 
 @RestController
 public class WebRestController {
-
-	
 	private static final Logger log = LoggerFactory.getLogger(WebRestController.class);
 
 	@Autowired
 	YsMemMapper ysMemMapper;
 	
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
-	public String test(@RequestParam Map<String, Object> map) throws Exception{
-	    String reqId = (String) map.get("id");
+	public String test(@RequestBody JSONObject object) throws Exception{
+	    log.info(object.toString());
+	    String reqId = (String) object.get("id");
 	    log.info("Request Parameter : " + reqId);
 		HashMap result = ysMemMapper.getYsMem(reqId);
 
