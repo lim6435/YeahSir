@@ -18,4 +18,8 @@
         WHERE mem_id = #{memId}
           AND mem_pwd = #{memPwd}
     </select>
+
+    <insert id="insYsMem" parameterType="com.lsg.www.vo.YsMemVo">
+
+    </insert>
 </mapper>
