@@ -16,7 +16,7 @@ import com.lsg.www.mapper.YsMemMapper;
 public class JoinController {
 	private static final Logger log = LoggerFactory.getLogger(JoinController.class);
 	@Autowired
-	YsMemMapper ysMemMapper;
+	private YsMemMapper ysMemMapper;
 	
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
 	public String memJoin(@RequestBody JSONObject object) throws Exception{

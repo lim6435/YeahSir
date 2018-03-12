@@ -15,7 +15,7 @@ public class WebRestController {
 	private static final Logger log = LoggerFactory.getLogger(WebRestController.class);
 
 	@Autowired
-	YsMemMapper ysMemMapper;
+	private YsMemMapper ysMemMapper;
 	
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
 	public String test(@RequestBody JSONObject object) throws Exception{
