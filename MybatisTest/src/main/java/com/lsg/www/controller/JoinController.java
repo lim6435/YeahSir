@@ -20,7 +20,6 @@ public class JoinController {
 	
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
 	public String memJoin(@RequestBody JSONObject object) throws Exception{
-		String result = "0";
 		log.info("Request Message : " + object.toString());
 		String memId = (String) object.get("id");
 		String memPwd = (String) object.get("pwd");
@@ -41,9 +40,7 @@ public class JoinController {
 		vo.setMemTall(memTall);
 		vo.setMemWeight(memWeight);
 		vo.setRegId(regId);
-
 		ysMemMapper.insYsMem(vo);
-
         return "success";
 	}
 }

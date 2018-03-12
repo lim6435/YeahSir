@@ -7,9 +7,9 @@
     <resultMap id="YsMemResult" type="java.util.HashMap">
         <result column="mem_id" property="memId"/>
         <result column="mem_name" property="memName"/>
-        <result column="mem_birth" property="memBirth" />
-        <result column="mem_tall" property="memTall" />
-        <result column="mem_weight" property="memWeight" />
+        <result column="mem_birth" property="memBirth"/>
+        <result column="mem_tall" property="memTall"/>
+        <result column="mem_weight" property="memWeight"/>
     </resultMap>
 
     <select id="getYsMem" resultMap="YsMemResult" parameterType="com.lsg.www.vo.YsMemVO">
