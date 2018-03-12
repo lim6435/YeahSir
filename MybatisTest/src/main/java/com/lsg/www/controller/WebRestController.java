@@ -2,6 +2,7 @@ package com.lsg.www.controller;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,8 +31,8 @@ public class WebRestController {
 	YsMemMapper ysMemMapper;
 	
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
-	public String test(@RequestParam String id) throws Exception{
-	    String reqId = id;
+	public String test(@RequestParam Map<String, Object> map) throws Exception{
+	    String reqId = (String) map.get("id");
 	    log.info("Request Parameter : " + reqId);
 		HashMap result = ysMemMapper.getYsMem(reqId);
 
