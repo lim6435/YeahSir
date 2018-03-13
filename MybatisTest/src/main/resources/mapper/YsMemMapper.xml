@@ -39,7 +39,7 @@
       #{memBirth},
       #{memTall},
       #{memWeight},
-      DATE_FORMAT(now(), '%Y%M%D'),
+      date_format(now(), '%Y%m%d'),
       now()
       #{regId}
     )
