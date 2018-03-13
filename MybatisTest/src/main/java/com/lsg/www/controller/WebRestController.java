@@ -1,5 +1,8 @@
 package com.lsg.www.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.lsg.www.mapper.MainMapper;
 import com.lsg.www.mapper.YsMemMapper;
 import com.lsg.www.vo.YsCoptVo;
@@ -40,19 +43,22 @@ public class WebRestController {
         JSONObject obj = new JSONObject();
         JSONArray jsonArray = new JSONArray();
 
-//        for(int i=0; i<coptList.size(); i++) {
-//            JSONObject tempObj = new JSONObject();
-//            tempObj.putAll(coptList.get(i));
-//        }
-        jsonArray.addAll(coptList);
+        JsonArray g_Array = new JsonArray();
+        JsonObject g_object = new JsonObject();
+        Gson gson = new Gson();
+        for(int i=0; i<coptList.size(); i++) {
+            JSONObject tempObj = new JSONObject();
+            tempObj.putAll(coptList.get(i));
+            jsonArray.add(tempObj);
+        }
+        obj.put("getCoptList", jsonArray);
         obj.putAll(result);
-        String jsonArrStr = jsonArray.toJSONString().replaceAll("\\\"", "\"");
 
-        obj.put("getCoptInfo", jsonArrStr);
 		log.info("result json :: " + obj.toJSONString());
-        String jsonFormattedString = obj.toJSONString().replace("\\\"", "\"");
-        String resultString = jsonFormattedString.replace("\"", "'");
-        log.info("result json :: " + resultString);
-        return resultString;
+//        String jsonFormattedString = obj.toJSONString().replace("\\\"", "\"");
+//        String resultString = jsonFormattedString.replace("\"", "'");
+//        log.info("result json :: " + resultString);
+//        return resultString;
+        return obj.toJSONString();
 	}
 }
