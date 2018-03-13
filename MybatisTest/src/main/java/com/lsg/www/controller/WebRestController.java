@@ -39,8 +39,9 @@ public class WebRestController {
         YsCoptVo coptVo = new YsCoptVo();
         List<YsCoptVo> coptList = mainMapper.getYsCopt(coptVo);
         JSONObject obj = new JSONObject();
-
-        jsonArray.add(coptList);
+        for(int i=0; i<coptList.size(); i++) {
+            jsonArray.add(coptList.get(i));
+        }
         log.info("List Type : " + coptList.get(0));
         obj.putAll(result);
         obj.put("getCoptInfo", jsonArray.toJSONString());
