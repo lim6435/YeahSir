@@ -17,17 +17,17 @@
         <result column="COPT_STAF_TEL_NO" property="coptStafTelNo" />
     </resultMap>
 
-    <select id="getYsCopt" resultMap="YsCoptResult" parameterType="com.lsg.www.vo.YsCoptVo">
-        SELECT COPT_ID,
-			   COPT_NAME,
-			   COPT_LOC,
-			   COPT_DT,
-			   COPT_TM,
-			   COPT_PRID,
-			   COPT_AGE_GROP,
-			   COPT_MTCH_RULE,
-			   COPT_FEE,
-			   COPT_STAF_TEL_NO
+    <select id="getYsCopt" resultType="YsCoptResult" parameterType="com.lsg.www.vo.YsCoptVo">
+        SELECT ifnull(COPT_ID, '') AS COPT_ID,
+			   ifnull(COPT_NAME, '') AS COPT_NAME,
+			   ifnull(COPT_LOC, '') AS COPT_LOC,
+			   ifnull(COPT_DT, '') AS COPT_DT,
+			   ifnull(COPT_TM, '') AS COPT_TM,
+			   ifnull(COPT_PRID, '') AS COPT_PRID
+			   ifnull(COPT_AGE_GROP, '') AS COPT_AGE_GROP,
+			   ifnull(COPT_MTCH_RULE, '') AS COPT_MTCH_RULE,
+			   ifnull(COPT_FEE, '') AS COPT_FEE,
+			   ifnull(COPT_STAF_TEL_NO, '') AS COPT_STAF_TEL_NO
 		  FROM YS_COPT
     </select>
 </mapper>

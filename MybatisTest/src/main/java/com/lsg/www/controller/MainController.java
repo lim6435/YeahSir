@@ -1,7 +1,9 @@
 package com.lsg.www.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,10 +28,12 @@ public class MainController {
 		
 	    log.info("Request JSON DATA [" + object.toString() + "]");
         YsCoptVo coptVo = new YsCoptVo();
-		HashMap result = mainMapper.getYsCopt(coptVo);
+		List result = mainMapper.getYsCopt(coptVo);
 
         JSONObject obj = new JSONObject();
-        obj.putAll(result);
+		JSONArray arr = new JSONArray();
+		arr.add(result);
+        obj.put("getCoptInfo", arr.toJSONString());
 		log.info("result :: " + result.toString());
 		log.info("result json :: " + obj.toString());
 
