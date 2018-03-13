@@ -8,8 +8,10 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.Resource;
@@ -22,6 +24,8 @@ import java.nio.charset.Charset;
 
 @SpringBootApplication
 @MapperScan(basePackages= {"com.lsg.www.mapper"})
+@EnableAutoConfiguration
+@ComponentScan
 public class MybatisTestApplication {
 
 	public static void main(String[] args) {
