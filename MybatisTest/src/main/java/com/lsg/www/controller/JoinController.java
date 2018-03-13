@@ -22,9 +22,10 @@ public class JoinController {
 	
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
 	public String memJoin(@RequestBody String str) throws Exception{
-		log.info("Request Message : " + str);
 		JSONParser parser = new JSONParser();
+		log.info("Original Message ::: " + str);
 		str = new String(str.getBytes(), "UTF-8");
+		log.info("Request Message : " + str);
 		JSONObject object = (JSONObject) parser.parse(str);
 //		JsonObject object = (JsonObject) jsonParser.parse(str);
 //		String memId = new String(object.get("id").getAsString().getBytes("UTF-8"), "UTF-8");
