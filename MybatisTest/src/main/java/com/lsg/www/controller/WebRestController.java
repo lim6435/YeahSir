@@ -44,9 +44,10 @@ public class WebRestController {
             tempObj.putAll(coptList.get(i));
             jsonArray.add(tempObj);
         }
-        log.info("List Type : " + coptList.get(0));
         obj.putAll(result);
-        obj.put("getCoptInfo", jsonArray.toString());
+        String jsonArrStr = jsonArray.toJSONString().replaceAll("\\\"", "\"");
+        obj.put("getCoptInfo", jsonArrStr);
+        log.info("getCoptInfo :: " + jsonArray.toJSONString().replaceAll("\\\"", "\""));
 		log.info("result json :: " + obj.toJSONString());
         String jsonFormattedString = obj.toJSONString().replace("\\\"", "\"");
         String resultString = jsonFormattedString.replace("\"", "'");
