@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,7 +26,6 @@ public class WebRestController {
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
 	public String test(@RequestBody JSONObject object) throws Exception{
 	    log.info("Request JSON DATA [" + object.toString() + "]");
-        JSONArray jsonArray = new JSONArray();
         String reqId = (String) object.get("id");
         String password = (String)object.get("pwd");
         YsMemVO memVo = new YsMemVO();
@@ -38,16 +36,19 @@ public class WebRestController {
         HashMap result = ysMemMapper.getYsMem(memVo);
         YsCoptVo coptVo = new YsCoptVo();
         List<HashMap> coptList = mainMapper.getYsCopt(coptVo);
+
         JSONObject obj = new JSONObject();
-        for(int i=0; i<coptList.size(); i++) {
-            JSONObject tempObj = new JSONObject();
-            tempObj.putAll(coptList.get(i));
-            jsonArray.add(tempObj);
-        }
+        JSONArray jsonArray = new JSONArray();
+
+//        for(int i=0; i<coptList.size(); i++) {
+//            JSONObject tempObj = new JSONObject();
+//            tempObj.putAll(coptList.get(i));
+//        }
+        jsonArray.addAll(coptList);
         obj.putAll(result);
         String jsonArrStr = jsonArray.toJSONString().replaceAll("\\\"", "\"");
+
         obj.put("getCoptInfo", jsonArrStr);
-        log.info("getCoptInfo :: " + jsonArray.toJSONString().replaceAll("\\\"", "\""));
 		log.info("result json :: " + obj.toJSONString());
         String jsonFormattedString = obj.toJSONString().replace("\\\"", "\"");
         String resultString = jsonFormattedString.replace("\"", "'");
