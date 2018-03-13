@@ -25,13 +25,13 @@ public class JoinController {
 		JsonParser jsonParser = new JsonParser();
 
 		JsonObject object = (JsonObject) jsonParser.parse(str);
-		String memId = object.get("id").getAsString();
-		String memPwd = object.get("pwd").getAsString();
-		String memName = object.get("memName").getAsString();
-		String lgnTpcd = object.get("lgnTpcd").getAsString();
-		String memBirth = object.get("memBirth").getAsString();
-		String memTall = object.get("memTall").getAsString();
-		String memWeight = object.get("memWeight").getAsString();
+		String memId = new String(object.get("id").getAsString().getBytes("UTF-8"), "UTF-8");
+		String memPwd = new String(object.get("pwd").getAsString().getBytes("UTF-8"), "UTF-8");
+		String memName = new String(object.get("memName").getAsString().getBytes("UTF-8"), "UTF-8");
+		String lgnTpcd = new String(object.get("lgnTpcd").getAsString().getBytes("UTF-8"), "UTF-8");
+		String memBirth = new String(object.get("memBirth").getAsString().getBytes("UTF-8"), "UTF-8");
+		String memTall = new String(object.get("memTall").getAsString().getBytes("UTF-8"), "UTF-8");
+		String memWeight = new String(object.get("memWeight").getAsString().getBytes("UTF-8"), "UTF-8");
 		String regId = this.getClass().getSimpleName();
 
 		log.info("memId ::: " + memId);
