@@ -48,8 +48,8 @@ public class WebRestController {
         obj.putAll(result);
         obj.put("getCoptInfo", jsonArray.toString());
 		log.info("result json :: " + obj.toJSONString());
-        log.info("result json :: " + obj.toString());
-
-		return obj.toJSONString();
+        String jsonFormattedString = obj.toJSONString().replace("\\\"", "\"");
+        log.info("result json :: " + jsonFormattedString);
+        return jsonFormattedString;
 	}
 }
