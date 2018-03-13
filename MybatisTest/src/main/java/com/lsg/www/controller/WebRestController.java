@@ -37,10 +37,12 @@ public class WebRestController {
         log.info("Request Parameter : " + reqId + " \t##### pwd : " + password);
         HashMap result = ysMemMapper.getYsMem(memVo);
         YsCoptVo coptVo = new YsCoptVo();
-        List<YsCoptVo> coptList = mainMapper.getYsCopt(coptVo);
+        List<HashMap> coptList = mainMapper.getYsCopt(coptVo);
         JSONObject obj = new JSONObject();
         for(int i=0; i<coptList.size(); i++) {
-            jsonArray.add(coptList.get(i));
+            JSONObject tempObj = new JSONObject();
+            tempObj.putAll(coptList.get(i));
+            jsonArray.add(tempObj);
         }
         log.info("List Type : " + coptList.get(0));
         obj.putAll(result);
