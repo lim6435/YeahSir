@@ -23,7 +23,7 @@
 			   ifnull(COPT_LOC, '') AS COPT_LOC,
 			   ifnull(COPT_DT, '') AS COPT_DT,
 			   ifnull(COPT_TM, '') AS COPT_TM,
-			   ifnull(COPT_PRID, '') AS COPT_PRID
+			   ifnull(COPT_PRID, '') AS COPT_PRID,
 			   ifnull(COPT_AGE_GROP, '') AS COPT_AGE_GROP,
 			   ifnull(COPT_MTCH_RULE, '') AS COPT_MTCH_RULE,
 			   ifnull(COPT_FEE, '') AS COPT_FEE,
