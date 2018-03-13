@@ -3,6 +3,7 @@ package com.lsg.www;
 import javax.servlet.Filter;
 import javax.sql.DataSource;
 
+import org.apache.catalina.connector.Connector;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -10,6 +11,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.tomcat.TomcatConnectorCustomizer;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.Ordered;
@@ -56,5 +60,18 @@ public class MybatisTestApplication {
 		characterEncodingFilter.setEncoding("UTF-8");
 		characterEncodingFilter.setForceEncoding(true);
 		return characterEncodingFilter;
+	}
+
+	@Bean
+	public EmbeddedServletContainerFactory servletContainer() {
+		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory(8080);
+		factory.addConnectorCustomizers(new TomcatConnectorCustomizer() {
+
+			@Override
+			public void customize(Connector connector) {
+				connector.setURIEncoding("UTF-8");
+			}
+		});
+		return factory;
 	}
 }
