@@ -17,7 +17,7 @@
         <result column="COPT_STAF_TEL_NO" property="coptStafTelNo" />
     </resultMap>
 
-    <select id="getYsCopt" resultType="YsCoptResult" parameterType="com.lsg.www.vo.YsCoptVo">
+    <select id="getYsCopt" resultMap="YsCoptResult" parameterType="com.lsg.www.vo.YsCoptVo">
         SELECT ifnull(COPT_ID, '') AS COPT_ID,
 			   ifnull(COPT_NAME, '') AS COPT_NAME,
 			   ifnull(COPT_LOC, '') AS COPT_LOC,
