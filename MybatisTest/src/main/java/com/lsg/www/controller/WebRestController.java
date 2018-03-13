@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class WebRestController {
 	    log.info("Request Parameter : " + reqId + " \t##### pwd : " + password);
 		HashMap result = ysMemMapper.getYsMem(memVo);
         YsCoptVo coptVo = new YsCoptVo();
-        List coptList = mainMapper.getYsCopt(coptVo);
+        ArrayList coptList = (ArrayList) mainMapper.getYsCopt(coptVo);
 
         JSONArray jsonArray = new JSONArray();
         jsonArray.add(coptList);
