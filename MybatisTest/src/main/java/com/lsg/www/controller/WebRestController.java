@@ -23,7 +23,9 @@ public class WebRestController {
     @Autowired
     private MainMapper mainMapper;
 
+
     @RequestMapping(value = "/test", method = {RequestMethod.GET, RequestMethod.POST})
+
     public String test(@RequestBody JSONObject object) throws Exception {
         log.info("Request JSON DATA [" + object.toString() + "]");
         String reqId = (String) object.get("id");

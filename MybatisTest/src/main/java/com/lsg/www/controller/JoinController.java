@@ -21,7 +21,14 @@ public class JoinController {
 	private YsMemMapper ysMemMapper;
 	
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
-	public String memJoin(@RequestBody JSONObject object) throws Exception{
+	public String memJoin(@RequestBody String str) throws Exception{
+		log.info("Original String ::: " + str);
+		str = new String(str.getBytes(), "UTF-8");
+		log.info("Converting String ::: " + str);
+		JSONParser parser = new JSONParser();
+		JSONObject object = (JSONObject)parser.parse(str);
+
+		log.info("JSON PARSE DATA ::: " + object.toJSONString());
 		String memId = (String)object.get("id");
 		String memPwd = (String)object.get("pwd");
 		String memName = (String)object.get("memName");
