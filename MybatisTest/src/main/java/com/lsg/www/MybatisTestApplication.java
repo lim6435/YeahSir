@@ -46,7 +46,7 @@ public class MybatisTestApplication {
 
 	@Bean
 	public HttpMessageConverter<String> responseBodyConverter() {
-		return new StringHttpMessageConverter(Charset.forName("UTF-8"));
+		return new StringHttpMessageConverter(Charset.forName("EUC-KR"));
 	}
 
 	@Order(Ordered.HIGHEST_PRECEDENCE)
