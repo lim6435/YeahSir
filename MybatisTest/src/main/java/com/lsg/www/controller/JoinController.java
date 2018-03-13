@@ -1,5 +1,6 @@
 package com.lsg.www.controller;
 
+import com.google.gson.*;
 import com.lsg.www.vo.YsMemVO;
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
@@ -19,20 +20,23 @@ public class JoinController {
 	private YsMemMapper ysMemMapper;
 	
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
-	public String memJoin(@RequestBody JSONObject object) throws Exception{
-		log.info("Request Message : " + object.toString());
+	public String memJoin(@RequestBody String str) throws Exception{
+		log.info("Request Message : " + str);
+		JsonParser jsonParser = new JsonParser();
 
-		String memId = (String) object.get("id");
-		String memPwd = (String) object.get("pwd");
-		String memName = (String) object.get("memName");
-		String lgnTpcd = (String) object.get("lgnTpcd");
-		String memBirth = (String) object.get("memBirth");
-		String memTall = (String) object.get("memTall");
-		String memWeight = (String) object.get("memWeight");
-		String regId = this.getClass().getName();
+		JsonObject object = (JsonObject) jsonParser.parse(str);
+		String memId = object.get("id").getAsString();
+		String memPwd = object.get("pwd").getAsString();
+		String memName = object.get("memName").getAsString();
+		String lgnTpcd = object.get("lgnTpcd").getAsString();
+		String memBirth = object.get("memBirth").getAsString();
+		String memTall = object.get("memTall").getAsString();
+		String memWeight = object.get("memWeight").getAsString();
+		String regId = this.getClass().getSimpleName();
+
+		log.info("memId ::: " + memId);
 
 		YsMemVO vo = new YsMemVO();
-
 		vo.setMemPwd(memPwd);
 		vo.setMemId(memId);
 		vo.setMemName(memName);
@@ -42,6 +46,7 @@ public class JoinController {
 		vo.setMemWeight(memWeight);
 		vo.setRegId(regId);
 		ysMemMapper.insYsMem(vo);
+
         return "success";
 	}
 }
