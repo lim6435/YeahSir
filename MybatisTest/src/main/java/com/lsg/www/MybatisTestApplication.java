@@ -20,8 +20,6 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
-import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.filter.CharacterEncodingFilter;
 
 import java.nio.charset.Charset;
@@ -48,11 +46,6 @@ public class MybatisTestApplication {
 		return sf.getObject();
 	}
 
-	@Bean
-	public HttpMessageConverter<String> responseBodyConverter() {
-		return new StringHttpMessageConverter(Charset.forName("EUC-KR"));
-	}
-
 	@Order(Ordered.HIGHEST_PRECEDENCE)
 	@Bean
 	public Filter characterEncodingFilter() {
@@ -66,7 +59,6 @@ public class MybatisTestApplication {
 	public EmbeddedServletContainerFactory servletContainer() {
 		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory(8080);
 		factory.addConnectorCustomizers(new TomcatConnectorCustomizer() {
-
 			@Override
 			public void customize(Connector connector) {
 				connector.setURIEncoding("UTF-8");

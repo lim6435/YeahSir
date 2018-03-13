@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sun.misc.BASE64Decoder;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,10 +27,10 @@ public class WebRestController {
 
 
     @RequestMapping(value = "/test", method = {RequestMethod.GET, RequestMethod.POST})
-
     public String test(@RequestBody String str) throws Exception {
         log.info("Original String ::: " + str);
-        str = new String(str.getBytes(), "UTF-8");
+        byte[] temps = new BASE64Decoder().decodeBuffer(str);
+        str = new String(temps, "UTF-8");
         log.info("Converting String ::: " + str);
         JSONParser parser = new JSONParser();
         JSONObject object = (JSONObject)parser.parse(str);
