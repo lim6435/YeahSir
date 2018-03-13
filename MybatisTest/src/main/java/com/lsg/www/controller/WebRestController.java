@@ -27,24 +27,23 @@ public class WebRestController {
 	@RequestMapping(value="/test", method= {RequestMethod.GET, RequestMethod.POST})
 	public String test(@RequestBody JSONObject object) throws Exception{
 	    log.info("Request JSON DATA [" + object.toString() + "]");
-	    String reqId = (String) object.get("id");
-	    String password = (String)object.get("pwd");
+        JSONArray jsonArray = new JSONArray();
+        String reqId = (String) object.get("id");
+        String password = (String)object.get("pwd");
         YsMemVO memVo = new YsMemVO();
         memVo.setMemId(reqId);
         memVo.setMemPwd(password);
 
-	    log.info("Request Parameter : " + reqId + " \t##### pwd : " + password);
-		HashMap result = ysMemMapper.getYsMem(memVo);
+        log.info("Request Parameter : " + reqId + " \t##### pwd : " + password);
+        HashMap result = ysMemMapper.getYsMem(memVo);
         YsCoptVo coptVo = new YsCoptVo();
-        ArrayList coptList = (ArrayList) mainMapper.getYsCopt(coptVo);
+        List<YsCoptVo> coptList = mainMapper.getYsCopt(coptVo);
+        JSONObject obj = new JSONObject();
 
-        JSONArray jsonArray = new JSONArray();
         jsonArray.add(coptList);
         log.info("List Type : " + coptList.get(0));
-        JSONObject obj = new JSONObject();
         obj.putAll(result);
         obj.put("getCoptInfo", jsonArray.toJSONString());
-//		log.info("result :: " + result.toString());
 		log.info("result json :: " + obj.toString());
 
 		return obj.toString();
