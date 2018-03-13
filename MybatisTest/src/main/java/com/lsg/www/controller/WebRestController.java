@@ -39,7 +39,7 @@ public class WebRestController {
 
         JSONArray jsonArray = new JSONArray();
         jsonArray.add(coptList);
-
+        log.info("List Type : " + coptList.get(0));
         JSONObject obj = new JSONObject();
         obj.putAll(result);
         obj.put("getCoptInfo", jsonArray.toJSONString());
