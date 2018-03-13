@@ -13,9 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lsg.www.mapper.YsMemMapper;
-import sun.misc.BASE64Decoder;
 
-import java.util.Base64;
+import java.net.URLDecoder;
 
 @RestController
 public class JoinController {
@@ -26,8 +25,9 @@ public class JoinController {
 	@RequestMapping(value="/memJoin", method= {RequestMethod.GET, RequestMethod.POST})
 	public String memJoin(@RequestBody String str) throws Exception{
 		log.info("Original String ::: " + str);
-		byte[] temps = new BASE64Decoder().decodeBuffer(str);
-		str = new String(temps, "UTF-8");
+
+		str = URLDecoder.decode(str, "UTF-8");
+//		str = new String(temps, "UTF-8");
 		log.info("Converting String ::: " + str);
 		JSONParser parser = new JSONParser();
 		JSONObject object = (JSONObject)parser.parse(str);
