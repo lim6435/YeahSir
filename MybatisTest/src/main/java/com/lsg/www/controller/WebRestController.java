@@ -6,6 +6,7 @@ import com.lsg.www.vo.YsCoptVo;
 import com.lsg.www.vo.YsMemVO;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,13 @@ public class WebRestController {
 
     @RequestMapping(value = "/test", method = {RequestMethod.GET, RequestMethod.POST})
 
-    public String test(@RequestBody JSONObject object) throws Exception {
+    public String test(@RequestBody String str) throws Exception {
+        log.info("Original String ::: " + str);
+        str = new String(str.getBytes(), "UTF-8");
+        log.info("Converting String ::: " + str);
+        JSONParser parser = new JSONParser();
+        JSONObject object = (JSONObject)parser.parse(str);
+
         log.info("Request JSON DATA [" + object.toString() + "]");
         String reqId = (String) object.get("id");
         String password = (String) object.get("pwd");
