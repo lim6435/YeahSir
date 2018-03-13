@@ -46,7 +46,7 @@ public class WebRestController {
         }
         log.info("List Type : " + coptList.get(0));
         obj.putAll(result);
-        obj.put("getCoptInfo", jsonArray.toJSONString());
+        obj.put("getCoptInfo", jsonArray.toString());
 		log.info("result json :: " + obj.toString());
 
 		return obj.toString();
