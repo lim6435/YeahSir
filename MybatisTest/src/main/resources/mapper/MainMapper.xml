@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lsg.www.mapper.MainMapper">
-    <resultMap id="YsCoptResult" type="com.lsg.www.vo.YsCoptVo">
+    <resultMap id="YsCoptResult" type="java.util.HashMap">
         <result column="COPT_ID" property="coptId" />
         <result column="COPT_NAME" property="coptName" />
         <result column="COPT_LOC" property="coptLoc" />
