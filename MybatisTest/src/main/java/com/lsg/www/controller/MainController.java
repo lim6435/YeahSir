@@ -33,7 +33,7 @@ public class MainController {
         JSONObject obj = new JSONObject();
 		JSONArray arr = new JSONArray();
 		arr.add(result);
-        obj.put("getCoptInfo", arr.toJSONString());
+        obj.put("getCoptInfo", arr);
 		log.info("result :: " + result.toString());
 		log.info("result json :: " + obj.toString());
 

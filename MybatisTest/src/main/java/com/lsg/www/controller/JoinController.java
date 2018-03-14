@@ -27,7 +27,6 @@ public class JoinController {
 		log.info("Original String ::: " + str);
 
 		str = URLDecoder.decode(str, "UTF-8");
-//		str = new String(temps, "UTF-8");
 		log.info("Converting String ::: " + str);
 		JSONParser parser = new JSONParser();
 		JSONObject object = (JSONObject)parser.parse(str);
