@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
+@RequestMapping("/tests")
 public class WebRestController {
     private static final Logger log = LoggerFactory.getLogger(WebRestController.class);
 
