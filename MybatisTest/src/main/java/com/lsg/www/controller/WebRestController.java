@@ -29,8 +29,6 @@ public class WebRestController {
     @RequestMapping(value = "/test", method = {RequestMethod.GET, RequestMethod.POST})
     public String test(@RequestBody String str) throws Exception {
         log.info("Original String ::: " + str);
-
-        
         str = URLDecoder.decode(str, "UTF-8");
         log.info("Converting String ::: " + str);
         JSONParser parser = new JSONParser();

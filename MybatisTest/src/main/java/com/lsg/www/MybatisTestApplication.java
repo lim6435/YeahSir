@@ -25,45 +25,45 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import java.nio.charset.Charset;
 
 @SpringBootApplication
-@MapperScan(basePackages= {"com.lsg.www.mapper"})
+@MapperScan(basePackages = {"com.lsg.www.mapper"})
 @EnableAutoConfiguration
 @ComponentScan
 public class MybatisTestApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MybatisTestApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MybatisTestApplication.class, args);
+    }
 
-	@Bean
-	public SqlSessionFactory sqlSessionFactory(DataSource datasource)throws Exception {
-		SqlSessionFactoryBean sf = new SqlSessionFactoryBean();
-		sf.setDataSource(datasource);
+    @Bean
+    public SqlSessionFactory sqlSessionFactory(DataSource datasource) throws Exception {
+        SqlSessionFactoryBean sf = new SqlSessionFactoryBean();
+        sf.setDataSource(datasource);
 
-		Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*Mapper.xml");
-		System.out.println(res.length);
-		sf.setMapperLocations(res);
+        Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mapper/*Mapper.xml");
+        System.out.println(res.length);
+        sf.setMapperLocations(res);
 
-		return sf.getObject();
-	}
+        return sf.getObject();
+    }
 
-	@Order(Ordered.HIGHEST_PRECEDENCE)
-	@Bean
-	public Filter characterEncodingFilter() {
-		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
-		characterEncodingFilter.setEncoding("UTF-8");
-		characterEncodingFilter.setForceEncoding(true);
-		return characterEncodingFilter;
-	}
+    @Order(Ordered.HIGHEST_PRECEDENCE)
+    @Bean
+    public Filter characterEncodingFilter() {
+        CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+        characterEncodingFilter.setEncoding("UTF-8");
+        characterEncodingFilter.setForceEncoding(true);
+        return characterEncodingFilter;
+    }
 
-	@Bean
-	public EmbeddedServletContainerFactory servletContainer() {
-		TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory(8080);
-		factory.addConnectorCustomizers(new TomcatConnectorCustomizer() {
-			@Override
-			public void customize(Connector connector) {
-				connector.setURIEncoding("UTF-8");
-			}
-		});
-		return factory;
-	}
+    @Bean
+    public EmbeddedServletContainerFactory servletContainer() {
+        TomcatEmbeddedServletContainerFactory factory = new TomcatEmbeddedServletContainerFactory(8080);
+        factory.addConnectorCustomizers(new TomcatConnectorCustomizer() {
+            @Override
+            public void customize(Connector connector) {
+                connector.setURIEncoding("UTF-8");
+            }
+        });
+        return factory;
+    }
 }
