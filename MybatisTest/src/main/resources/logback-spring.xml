@@ -9,7 +9,7 @@
 
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
-                /logs/service_%d{yyyy-MM-dd}.log
+                ./logs/service_%d{yyyy-MM-dd}.log
             </fileNamePattern>
             <maxHistory>30</maxHistory>
         </rollingPolicy>
@@ -21,7 +21,8 @@
             <pattern>%d{yyyy:MM:dd HH:mm:ss.SSS} %-5level --- [%thread] %logger{35} : %msg %n</pattern>
         </encoder>
     </appender>
-    <logger name="com.lsg.www.controller" level="INFO"></logger>
+    <logger name="com.lsg.www.controller" level="INFO">
+    </logger>
     <logger name="org.springframework.web" level="DEBUG"/>
     <root level="INFO">
         <appender-ref ref="dailyRollingFileAppender" />
