@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tests")
 public class WebRestController {
     private static final Logger log = LoggerFactory.getLogger(WebRestController.class);
 
@@ -31,6 +30,7 @@ public class WebRestController {
     public String test(@RequestBody String str) throws Exception {
         log.info("Original String ::: " + str);
 
+        
         str = URLDecoder.decode(str, "UTF-8");
         log.info("Converting String ::: " + str);
         JSONParser parser = new JSONParser();
